@@ -14,13 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boolProperties:
     keys:
-    - Meta.XR.SDK.d091363c2f43fb028e3651f27ae2ba48.Ignored.Android
-    - Meta.XR.SDK.720b47ac696ce33ca9c01e538a6a8dca.Ignored.Android
-    - Meta.XR.SDK.2402cb5a6c706c586c7ebf44dec8d248.Ignored.Android
-    - Meta.XR.SDK.d091363c2f43fb028e3651f27ae2ba48.Ignored.Standalone
-    - Meta.XR.SDK.720b47ac696ce33ca9c01e538a6a8dca.Ignored.Standalone
-    - Meta.XR.SDK.2402cb5a6c706c586c7ebf44dec8d248.Ignored.Standalone
-    values: 010101010101
+    - Meta.XR.SDK.1f48c19c4f1bc4a175f5f6a5dffde86e.Ignored.Standalone
+    - Meta.XR.SDK.1f48c19c4f1bc4a175f5f6a5dffde86e.Ignored.Android
+    values: 0101
   intProperties:
     keys: []
     values: 

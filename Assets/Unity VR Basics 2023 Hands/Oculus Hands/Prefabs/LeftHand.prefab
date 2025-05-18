@@ -438,7 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7072478885644867327}
   - component: {fileID: 7072478885652658473}
-  - component: {fileID: -1312891671449167680}
+  - component: {fileID: -3655483552884307025}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -484,7 +484,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-1312891671449167680
+--- !u!114 &-3655483552884307025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7072478885645355679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a2cb2f5cd453344ac54ec1312d1340, type: 3}
+  m_Script: {fileID: 11500000, guid: c0f6a9e912318994994daf6939d6fa81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gripInputActionReference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
