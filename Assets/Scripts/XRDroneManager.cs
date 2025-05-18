@@ -168,6 +168,7 @@ public class XRDroneManager : MonoBehaviour
         }
 
         isPlaying = false;
+        droneCamera.transform.GetChild(0).gameObject.SetActive(true);
         currentDroneCam = null;
     }
 
@@ -175,6 +176,7 @@ public class XRDroneManager : MonoBehaviour
     private IEnumerator PlayCameraPath()
     {
         isPlaying = true;
+        droneCamera.transform.GetChild(0).gameObject.SetActive(true);
 
         foreach (GameObject waypoint in waypoints)
         {
