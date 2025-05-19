@@ -36,6 +36,7 @@ public class XRDroneManager : MonoBehaviour
 
     private Camera xrMainCamera;
     private bool isPlaying = false;
+    private GameObject currentDrone;
     private GameObject currentDroneCam;
     private Coroutine playPathCoroutine;
 
@@ -181,8 +182,8 @@ public class XRDroneManager : MonoBehaviour
 
     private void CleanupCameraPath()
     {
-        if (currentDroneCam != null)
-            Destroy(currentDroneCam);
+        if (currentDrone != null)
+            Destroy(currentDrone);
 
         if (xrMainCamera != null)
             xrMainCamera.enabled = true;
@@ -201,6 +202,7 @@ public class XRDroneManager : MonoBehaviour
         }
 
         isPlaying = false;
+        currentDrone = null;
         currentDroneCam = null;
     }
 
@@ -232,7 +234,8 @@ public class XRDroneManager : MonoBehaviour
         float startY = waypoints[0].transform.eulerAngles.y;
         float startX = waypoints[0].transform.Find("Gimbal").localEulerAngles.x;
         Quaternion startRot = Quaternion.Euler(startX, startY, 0);
-        currentDroneCam = Instantiate(droneCamera, startPos, startRot);
+        currentDrone = Instantiate(droneCamera, startPos, startRot);
+        currentDroneCam = currentDrone.transform.Find("DroneCamera").gameObject;
         Camera flyingCam = currentDroneCam.GetComponent<Camera>();
         if (flyingCam != null)
             flyingCam.enabled = true;
@@ -243,16 +246,19 @@ public class XRDroneManager : MonoBehaviour
 
         for (int i = 1; i < waypoints.Count; i++)
         {
-            Vector3 fromPos = currentDroneCam.transform.position;
-            Quaternion fromRot = currentDroneCam.transform.rotation;
+            Vector3 fromPos = currentDrone.transform.position;
+            Quaternion fromRotDrone = currentDrone.transform.rotation;
+            Quaternion fromRotCam = currentDroneCam.transform.rotation;
 
             Vector3 toPos = waypoints[i].transform.position;
 
-            Quaternion toRot;
+            Quaternion toRotCam;
+            Quaternion toRotDrone;
 
             float toY = waypoints[i].transform.eulerAngles.y;
             float toX = waypoints[i].transform.Find("Gimbal").localEulerAngles.x;
-            toRot = Quaternion.Euler(toX, toY, 0);
+            toRotDrone = Quaternion.Euler(0, toY, 0);
+            toRotCam = Quaternion.Euler(toX, 0, 0);
 
             float distance = Vector3.Distance(fromPos, toPos);
             float duration = distance / droneSpeed;
@@ -261,31 +267,17 @@ public class XRDroneManager : MonoBehaviour
             while (elapsed < duration)
             {
                 float t = elapsed / duration;
-                currentDroneCam.transform.position = Vector3.Lerp(fromPos, toPos, t);
-                currentDroneCam.transform.rotation = Quaternion.Slerp(fromRot, toRot, t);
-                
-                // Keep child level by countering parent rotation
-                Transform child = currentDroneCam.transform.GetChild(0);
-                if (child != null)
-                {
-                    Vector3 parentRotation = currentDroneCam.transform.rotation.eulerAngles;
-                    child.localRotation = Quaternion.Euler(-parentRotation.x, 0, 0);
-                }
+                currentDrone.transform.position = Vector3.Lerp(fromPos, toPos, t);
+                currentDrone.transform.rotation = Quaternion.Slerp(fromRotDrone, toRotDrone, t);
+                currentDroneCam.transform.rotation = Quaternion.Slerp(fromRotCam, toRotCam, t);
                 
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            currentDroneCam.transform.position = toPos;
-            currentDroneCam.transform.rotation = toRot;
-            
-            // Update child rotation at final position
-            Transform finalChild = currentDroneCam.transform.GetChild(0);
-            if (finalChild != null)
-            {
-                Vector3 finalParentRotation = toRot.eulerAngles;
-                finalChild.localRotation = Quaternion.Euler(-finalParentRotation.x, 0, 0);
-            }
+            currentDrone.transform.position = toPos;
+            currentDrone.transform.rotation = toRotDrone;
+            currentDroneCam.transform.rotation = toRotCam;
             
             yield return new WaitForSeconds(0.2f);
         }
