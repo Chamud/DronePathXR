@@ -1446,8 +1446,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fieldOfView: 60
-  farClipPlane: 10
+  farClipPlane: 5
   aspectRatio: 1.7777778
+  section1Distance: 0.3
+  section2Distance: 1
   faceColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
   edgeColor: {r: 0, g: 0, b: 0, a: 0.24705882}
 --- !u!33 &5949995523934230637
@@ -1479,6 +1481,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ece2f336e00c2a2409df43a742058a90, type: 2}
+  - {fileID: 2100000, guid: fed257f569724034ca6b6da93cc11064, type: 2}
+  - {fileID: 2100000, guid: 6c99c2771b3f7614088b6afc369b118f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
