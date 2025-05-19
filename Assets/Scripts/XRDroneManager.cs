@@ -26,6 +26,11 @@ public class XRDroneManager : MonoBehaviour
     public GameObject droneCamera;
     public float droneSpeed = 5f;
 
+    [Header("Path Visualization")]
+    public float pathWidth = 0.1f;
+    public Material pathMaterial;
+    private LineRenderer pathLine;
+
     [Header("Waypoints")]
     public List<GameObject> waypoints = new List<GameObject>();
 
@@ -37,12 +42,22 @@ public class XRDroneManager : MonoBehaviour
     void Start()
     {
         xrMainCamera = Camera.main;
+        
+        // Setup line renderer
+        pathLine = gameObject.AddComponent<LineRenderer>();
+        pathLine.startWidth = pathWidth;
+        pathLine.endWidth = pathWidth;
+        pathLine.material = pathMaterial;
+        pathLine.numCornerVertices = 8;
+        pathLine.numCapVertices = 8;
+        pathLine.alignment = LineAlignment.View;
     }
 
     void Update()
     {
         HandleRightHand();
         HandleLeftHand();
+        UpdatePathLine();
 
         if (playAction.action.WasPerformedThisFrame())
         {
@@ -85,6 +100,24 @@ public class XRDroneManager : MonoBehaviour
                         listener.enabled = false;
                 }
             }
+        }
+    }
+
+    private void UpdatePathLine()
+    {
+        if (waypoints.Count < 2)
+        {
+            pathLine.positionCount = 0;
+            return;
+        }
+
+        pathLine.positionCount = waypoints.Count;
+        for (int i = 0; i < waypoints.Count; i++)
+        {
+            Vector3 waypointPos = waypoints[i].transform.position;
+            // Offset the line 0.12 units behind waypoints
+            Vector3 offsetPos = waypointPos - waypoints[i].transform.forward * 0.12f;
+            pathLine.SetPosition(i, offsetPos);
         }
     }
 
@@ -168,7 +201,6 @@ public class XRDroneManager : MonoBehaviour
         }
 
         isPlaying = false;
-        droneCamera.transform.GetChild(0).gameObject.SetActive(true);
         currentDroneCam = null;
     }
 
@@ -176,7 +208,6 @@ public class XRDroneManager : MonoBehaviour
     private IEnumerator PlayCameraPath()
     {
         isPlaying = true;
-        droneCamera.transform.GetChild(0).gameObject.SetActive(true);
 
         foreach (GameObject waypoint in waypoints)
         {
@@ -232,12 +263,30 @@ public class XRDroneManager : MonoBehaviour
                 float t = elapsed / duration;
                 currentDroneCam.transform.position = Vector3.Lerp(fromPos, toPos, t);
                 currentDroneCam.transform.rotation = Quaternion.Slerp(fromRot, toRot, t);
+                
+                // Keep child level by countering parent rotation
+                Transform child = currentDroneCam.transform.GetChild(0);
+                if (child != null)
+                {
+                    Vector3 parentRotation = currentDroneCam.transform.rotation.eulerAngles;
+                    child.localRotation = Quaternion.Euler(-parentRotation.x, 0, 0);
+                }
+                
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
             currentDroneCam.transform.position = toPos;
             currentDroneCam.transform.rotation = toRot;
+            
+            // Update child rotation at final position
+            Transform finalChild = currentDroneCam.transform.GetChild(0);
+            if (finalChild != null)
+            {
+                Vector3 finalParentRotation = toRot.eulerAngles;
+                finalChild.localRotation = Quaternion.Euler(-finalParentRotation.x, 0, 0);
+            }
+            
             yield return new WaitForSeconds(0.2f);
         }
 
