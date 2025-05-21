@@ -52,6 +52,8 @@ public class XRDroneManager : MonoBehaviour
         pathLine.numCornerVertices = 8;
         pathLine.numCapVertices = 8;
         pathLine.alignment = LineAlignment.View;
+        gameObject.layer = LayerMask.NameToLayer("Waypoint");
+
     }
 
     void Update()
@@ -219,7 +221,6 @@ public class XRDroneManager : MonoBehaviour
                 Transform camera = gimbal.Find("Camera"); 
                 if (camera != null)
                 {
-                    // Found both Gimbal and Camera
                     camera.gameObject.SetActive(false);
                 }
             }

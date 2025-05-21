@@ -144,9 +144,20 @@ public class DroneCameraFrustumMeshWithEdges : MonoBehaviour
         // Draw lines between all levels (3 levels: 1-4, 5-8, 9-12)
         for (int i = 0; i < 4; i++)
         {
-            DrawEdge(Vector3.zero, corners[i]);      // Apex to section1
-            DrawEdge(corners[i], corners[i + 4]);    // section1 to section2
-            DrawEdge(corners[i + 4], corners[i + 8]); // section2 to far
+            GL.Color(new Color(edgeColor.r, edgeColor.g, edgeColor.b, 1f));
+            GL.Vertex(Vector3.zero);
+            GL.Color(new Color(edgeColor.r, edgeColor.g, edgeColor.b, 0.7f));
+            GL.Vertex(corners[i]);
+
+            GL.Color(new Color(edgeColor.r, edgeColor.g, edgeColor.b, 0.7f));
+            GL.Vertex(corners[i]);
+            GL.Color(new Color(edgeColor.r, edgeColor.g, edgeColor.b, 0.3f));
+            GL.Vertex(corners[i + 4]);
+
+            GL.Color(new Color(edgeColor.r, edgeColor.g, edgeColor.b, 0.3f));
+            GL.Vertex(corners[i + 4]);
+            GL.Color(new Color(edgeColor.r, edgeColor.g, edgeColor.b, 0f));
+            GL.Vertex(corners[i + 8]);
         }
 
         GL.End();
