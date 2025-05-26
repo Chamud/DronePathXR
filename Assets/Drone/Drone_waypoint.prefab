@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6273784352105320124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mini_Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096744225481048581}
   - component: {fileID: 7277601044056052862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Leg_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4018142788999895202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2340611805457142475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gimbal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8434917847120875252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3936285685684036996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4692436760624922666}
   - component: {fileID: 3520611774363126981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Propeller_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3441631629008426433}
   - component: {fileID: 3083051175611160706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Propeller_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6370600903614838416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Propeller_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6894148975023548428}
   - component: {fileID: 2887202751922887629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Leg_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1133846558089161521}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Propeller_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2514260073420406051}
   - component: {fileID: 611829731277469833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Body_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7071457150872017530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Propeller_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7870670765443962647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6992818668335635216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Propeller_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5033755539206218849}
   - component: {fileID: 1385790554229931547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mini_Drone_Set_1_White_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8966733223902642495}
   - component: {fileID: 4749715968111198248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Propeller_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 3321948415177788308}
   - component: {fileID: 6932792735658704971}
   - component: {fileID: 1716930070413045512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6563221338162818639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Body_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,7 +1162,7 @@ GameObject:
   - component: {fileID: 8435704847638400592}
   - component: {fileID: 4343111131474061239}
   - component: {fileID: 5458673185024469233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1411,7 @@ GameObject:
   - component: {fileID: 1351729121020042036}
   - component: {fileID: 5949995523934230637}
   - component: {fileID: 1437420113648713291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1446,12 +1446,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fieldOfView: 60
-  farClipPlane: 5
+  farClipPlane: 2
   aspectRatio: 1.7777778
   section1Distance: 0.3
   section2Distance: 1
   faceColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
-  edgeColor: {r: 0, g: 0, b: 0, a: 0.24705882}
+  edgeColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
 --- !u!33 &5949995523934230637
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1514,7 +1514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4790112125132562098}
   - component: {fileID: 5454907904767783366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Propeller_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1608,7 +1608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531681601134245053}
   - component: {fileID: 6982116175639921057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Leg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1702,7 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6394992821711214627}
   - component: {fileID: 2302640738586459156}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone_Leg_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,7 +1795,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2180366305738301459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
